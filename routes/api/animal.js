@@ -1,18 +1,17 @@
 const express = require('express')
 const router = express.Router()
-const todoCtrl = require('../../controllers/api/todos')
+const animalCtrl = require('../../controllers/api/animal')
 
-// Index incomplete
-router.get('/', todoCtrl.indexNotComplete, todoCtrl.jsonTodos)
+
 // Index complete
-router.get('/completed', todoCtrl.indexComplete, todoCtrl.jsonTodos)
+router.get('/', animalCtrl.index, animalCtrl.jsonAnimals)
 // Delete
-router.delete('/:id', todoCtrl.destroy, todoCtrl.jsonTodo)
+router.delete('/:id', animalCtrl.destroy, animalCtrl.jsonAnimal)
 // Update
-router.put('/:id', todoCtrl.update, todoCtrl.jsonTodo)
+router.put('/:id', animalCtrl.update, animalCtrl.jsonAnimal)
 // Create
-router.post('/', todoCtrl.create, todoCtrl.jsonTodo)
+router.post('/', animalCtrl.create, animalCtrl.jsonAnimal)
 // Show
-router.get('/:id', todoCtrl.show, todoCtrl.jsonTodo)
+router.get('/:id', animalCtrl.show, animalCtrl.jsonAnimal)
 
 module.exports = router
